@@ -5,23 +5,7 @@ const util = require("util");
 const app = express();
 const port = 3000;
 
-app.use(express.static("public"));
-
-// app.get("/", (req, res) => {
-//   res.send("Welcome to my Speedtest API!");
-// });
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
-app.get("/", async (req, res) => {
-  // Set the response headers to indicate that this is an event stream
+module.exports = async (req, res) => {
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
@@ -74,7 +58,7 @@ app.get("/", async (req, res) => {
     // End the response
     res.end();
   }
-});
+};
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
