@@ -21,13 +21,15 @@ app.use((req, res, next) => {
 });
 
 app.get("/", async (req, res) => {
-  res.send("Welcome to my Speedtest API!");
   // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
     Connection: "keep-alive",
   });
+
+  // Send the welcome message as an EventSource event
+  res.write(`data: Welcome to my Speedtest API!\n\n`);
 
   // Create a custom debug function that sends debug messages as events
   const sendDebug = (message) => {
