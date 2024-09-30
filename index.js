@@ -12,6 +12,8 @@ app.use(express.static("public"));
 // });
 
 app.get("/", async (req, res) => {
+  res.send("Welcome to my Speedtest API!");
+
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -68,8 +70,6 @@ app.get("/", async (req, res) => {
     // End the response
     res.end();
   }
-
-  return "API working";
 });
 
 app.listen(port, () => {
