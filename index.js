@@ -5,15 +5,19 @@ const util = require("util");
 const app = express();
 const port = 3000;
 
-module.exports = async (req, res) => {
+app.use(express.static("public"));
+
+// app.get("/", (req, res) => {
+//   res.send("Welcome to my Speedtest API!");
+// });
+
+app.get("/api/speedtestnet", async (req, res) => {
+  // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
     Connection: "keep-alive",
   });
-
-  // Send the welcome message as an EventSource event
-  res.write(`data: Welcome to my Speedtest API!\n\n`);
 
   // Create a custom debug function that sends debug messages as events
   const sendDebug = (message) => {
@@ -58,7 +62,7 @@ module.exports = async (req, res) => {
     // End the response
     res.end();
   }
-};
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
