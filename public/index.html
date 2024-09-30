@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedtest Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #speedtest-container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+        }
+
+        #speedtest-container span {
+            font-size: 30px;
+            text-align: center;
+            color: black;
+        }
+
+        #speedtest-container div {
+            text-align: center;
+            color: gray;
+
+            grid-gap: 10px;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="speedtest-container">
+        <div style=" display: grid;grid-template-columns: 1fr 1fr 1fr 1fr;align-items: center; padding-bottom: 20px;">
+            <div style="border: 1px solid rgb(211, 211, 211); border-radius: 5px;">
+                <span id="DownloadResults">0</span><span style="font-size: 16px;">Mbps</span>
+                <br>Download Speed
+            </div>
+            <div style="border: 1px solid rgb(211, 211, 211); border-radius: 5px;">
+                <span id="UploadResults">0</span><span style="font-size: 16px;">Mbps</span>
+                <br>Upload Speed
+            </div>
+            <div style="border: 1px solid rgb(211, 211, 211); border-radius: 5px;">
+                <span id="PingResults">0</span><span style="font-size: 16px;">ms</span>
+                <br>Ping
+            </div>
+            <div style="border: 1px solid rgb(211, 211, 211); border-radius: 5px;">
+                <span id="JitterResults">0</span><span style="font-size: 16px;">ms</span>
+                <br>Jitter
+            </div>
+        </div>
+
+        <div id="debug-log"
+            style="height: 100px;overflow: hidden;overflow-y: auto; border: 1px solid #d0d0d0;border-radius: 3px;background: #f2f2f2; text-align: left !important;">
+        </div>
+
+        <button id="start-test">Start Test</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
