@@ -11,7 +11,7 @@ function runSpeedtest() {
   debugLog.innerHTML = ""; // Clear previous logs
   startTestButton.disabled = true;
   console.log("started");
-  const eventSource = new EventSource("/api/speedtest");
+  const eventSource = new EventSource("/api");
   console.log("getting data");
 
   eventSource.onmessage = function (event) {

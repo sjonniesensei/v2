@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(express.static("public"));
 
-app.get("/api/speedtest", async (req, res) => {
+app.get("/api", async (req, res) => {
   // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
