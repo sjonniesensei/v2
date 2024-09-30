@@ -11,15 +11,17 @@ app.use(express.static("public"));
 //   res.send("Welcome to my Speedtest API!");
 // });
 
-app.get("/", async (req, res) => {
-  res.send("Welcome to my Speedtest API!");
-
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
+});
+
+app.get("/", async (req, res) => {
+  res.send("Welcome to my Speedtest API!");
   // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
