@@ -12,6 +12,12 @@ app.use(express.static("public"));
 // });
 
 app.get("/", async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
   // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
