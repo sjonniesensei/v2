@@ -7,6 +7,10 @@ const port = 3000;
 
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to my Speedtest API!");
+});
+
 app.get("/api", async (req, res) => {
   // Set the response headers to indicate that this is an event stream
   res.writeHead(200, {
