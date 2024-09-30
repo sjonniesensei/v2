@@ -1,7 +1,7 @@
 const startTestButton = document.getElementById("start-test");
 const DownloadResults = document.getElementById("DownloadResults");
 const UploadResults = document.getElementById("UploadResults");
-const pingResults = document.getElementById("pingResults");
+const pingResult = document.getElementById("PingResults");
 const JitterResult = document.getElementById("JitterResults");
 const debugLog = document.getElementById("debug-log");
 
@@ -24,14 +24,12 @@ function runSpeedtest() {
       const download = data.downloadResult.speed;
       const upload = data.uploadResult.speed;
       const jitter = data.pingResult.jitter;
-      const latency = data.pingResult.latency;
+      const ping = data.pingResult.latency;
 
       DownloadResults.innerText = download;
       UploadResults.innerText = upload;
       JitterResult.innerText = jitter;
-      setTimeout(function () {
-        pingResults.innerText = latency;
-      }, 500);
+      pingResult.innerText = ping;
 
       eventSource.close();
       startTestButton.disabled = false;

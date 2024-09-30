@@ -2,5 +2,8 @@
   "dependencies": {
     "express": "^4.21.0",
     "universal-speedtest": "^3.0.0-rc.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
