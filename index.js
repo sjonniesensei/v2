@@ -58,6 +58,8 @@ app.get("/api", async (req, res) => {
     // End the response
     res.end();
   }
+
+  return "API working";
 });
 
 app.listen(port, () => {
